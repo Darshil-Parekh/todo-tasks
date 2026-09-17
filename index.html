@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="todo-container">
+
+        <h1 class="glow-title">My To-Do List</h1>
+
+        <div class="input-section">
+            <div class="input-row">
+                <input type="text" id="taskInput" placeholder="Enter a task..." autocomplete="off">
+                <select id="prioritySelect" class="priority-select" aria-label="Task Priority" title="Select Priority">
+                    <option value="high">🔴 High</option>
+                    <option value="medium" selected>🟡 Medium</option>
+                    <option value="low">🟢 Low</option>
+                </select>
+                <button id="addButton">Add</button>
+            </div>
+        </div>
+
+        <div class="controls-section">
+            <div class="status-filters" id="statusFilters">
+                <button class="filter-tab active" data-status="all" id="filterAll">
+                    All <span class="filter-count" id="countAll">0</span>
+                </button>
+                <button class="filter-tab" data-status="pending" id="filterPending">
+                    Pending <span class="filter-count" id="countPending">0</span>
+                </button>
+                <button class="filter-tab" data-status="completed" id="filterCompleted">
+                    Completed <span class="filter-count" id="countCompleted">0</span>
+                </button>
+            </div>
+
+            <div class="filter-subrow">
+                <div class="priority-filter-wrap">
+                    <label for="priorityFilter">Priority:</label>
+                    <select id="priorityFilter" class="priority-filter-select" aria-label="Filter by priority">
+                        <option value="all">All Priorities</option>
+                        <option value="high">🔴 High</option>
+                        <option value="medium">🟡 Medium</option>
+                        <option value="low">🟢 Low</option>
+                    </select>
+                </div>
+                <button id="clearAllBtn" class="clear-all-btn" title="Delete all tasks">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="3 6 5 6 21 6"></polyline>
+                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                    Clear All
+                </button>
+            </div>
+        </div>
+
+        <div class="task-section">
+            <div class="task-section-header">
+                <h2>Tasks</h2>
+                <span class="active-filter-indicator" id="activeFilterIndicator">Showing all</span>
+            </div>
+
+            <ul id="taskList" class="task-list">
+            </ul>
+
+            <div id="emptyState" class="empty-state hidden">
+                <div class="empty-icon-wrap">
+                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 11l3 3L22 4"></path>
+                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                    </svg>
+                </div>
+                <h3 id="emptyTitle">No tasks found</h3>
+                <p id="emptyMessage">Add your first task above to get started!</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="todo.js"></script>
+
+</body>
+
+</html>
